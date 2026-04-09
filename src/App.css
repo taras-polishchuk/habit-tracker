@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-color: #0f0f13;
+  color: #e8e8f0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 56px 16px;
+}
+
+/* ===== App Container ===== */
+.app {
+  width: 100%;
+  max-width: 460px;
+}
+
+/* ===== Header ===== */
+.app-header {
+  margin-bottom: 32px;
+}
+
+.app-header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #f0f0fa;
+  letter-spacing: -0.5px;
+}
+
+.progress-text {
+  margin-top: 6px;
+  font-size: 0.82rem;
+  color: #55556a;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* ===== Add Habit Form ===== */
+.add-habit-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.habit-input {
+  flex: 1;
+  padding: 11px 14px;
+  border: 1.5px solid #1e1e28;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  background: #16161f;
+  color: #e8e8f0;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.habit-input::placeholder {
+  color: #3a3a50;
+}
+
+.habit-input:focus {
+  border-color: #7c7cfa;
+  box-shadow: 0 0 0 3px rgba(124, 124, 250, 0.12);
+}
+
+.add-btn {
+  padding: 11px 20px;
+  background-color: #7c7cfa;
+  color: #0f0f13;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.add-btn:hover {
+  background-color: #9898fb;
+}
+
+.add-btn:active {
+  transform: scale(0.97);
+}
+
+/* ===== All Done Banner ===== */
+.all-done-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, #1a1a2a, #1e1e30);
+  border: 1.5px solid #2e2e4a;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  animation: fadeSlideIn 0.35s ease;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.all-done-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.all-done-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #b8b8fc;
+}
+
+.all-done-sub {
+  font-size: 0.8rem;
+  color: #45455e;
+  margin-top: 2px;
+}
+
+/* ===== Empty State ===== */
+.empty-state {
+  text-align: center;
+  color: #2e2e40;
+  font-size: 0.9rem;
+  margin-top: 48px;
+}
+
+/* ===== Habits List ===== */
+.habits-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ===== Habit Item ===== */
+.habit-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #13131a;
+  border-radius: 12px;
+  padding: 14px 16px;
+  border: 1.5px solid #1c1c28;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.habit-item:hover {
+  border-color: #28283c;
+}
+
+/* Виконана звичка */
+.habit-item.done {
+  border-color: #1a2e28;
+  background-color: #111a18;
+}
+
+.habit-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  flex: 1;
+}
+
+/* Кастомний чекбокс */
+.habit-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #2a2a3e;
+  border-radius: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s;
+  position: relative;
+  background: #0f0f16;
+}
+
+.habit-checkbox:checked {
+  background-color: #34d399;
+  border-color: #34d399;
+}
+
+.habit-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: 2px solid #0f0f13;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+.habit-title {
+  font-size: 0.9rem;
+  color: #c8c8d8;
+  transition: color 0.2s;
+  line-height: 1.4;
+}
+
+/* Закреслений текст для виконаних звичок */
+.habit-item.done .habit-title {
+  text-decoration: line-through;
+  color: #2e2e42;
+}
+
+/* ===== Delete Button ===== */
+.delete-btn {
+  background: none;
+  border: none;
+  color: #2a2a3e;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 5px 7px;
+  border-radius: 6px;
+  transition: color 0.15s, background-color 0.15s;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.delete-btn:hover {
+  color: #f87171;
+  background-color: #1e1318;
+}
